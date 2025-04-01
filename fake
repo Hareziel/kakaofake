@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="송금보내요">
+  <meta property="og:description" content="카카오페이에서 100,000원을 송금했습니다.">
+  <meta property="og:image" content="./img/image.png">
+  <meta property="og:url" content="https://hareziel.github.io/kakaofake/">
+  <title>송금보내요</title>
+  <style>
+    body {
+      background-color: #e1ecf4;
+      font-family: "Apple SD Gothic Neo", sans-serif;
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .loader {
+      font-size: 16px;
+      color: #555;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      margin: 4px;
+      background-color: #ffc107;
+      border-radius: 50%;
+      animation: bounce 0.6s infinite alternate;
+    }
+
+    .dot:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .dot:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+
+    @keyframes bounce {
+      to {
+        opacity: 0.3;
+        transform: translateY(-10px);
+      }
+    }
+
+    .message-card {
+      display: none;
+      width: 280px;
+      background-color: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+      border: 1px solid #d0d0d0;
+      animation: fadeIn 0.5s ease forwards;
+    }
+
+    .header {
+      background-color: #ffe000;
+      padding: 14px;
+      font-weight: bold;
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .header img {
+      width: 40px;
+      height: 40px;
+    }
+
+    .content {
+      padding: 16px 14px 10px;
+      font-size: 13px;
+      color: #222;
+    }
+
+    .amount {
+      font-weight: bold;
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
+
+    .notice {
+      color: #777;
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    .button {
+      margin: 10px 14px;
+      background-color: #f2f2f2;
+      text-align: center;
+      padding: 10px;
+      font-weight: bold;
+      font-size: 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      border: 1px solid #ddd;
+    }
+
+    .footer {
+      display: flex;
+      align-items: center;
+      padding: 10px 14px;
+      font-size: 11px;
+      color: #666;
+      border-top: 1px solid #eee;
+    }
+
+    .footer img {
+      width: 16px;
+      height: 16px;
+      margin-right: 6px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="loader" id="loading">
+    <div style="margin-bottom: 8px;">카카오페이 송금 로딩 중...</div>
+    <div style="display: flex;">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+  </div>
+
+  <div class="message-card" id="card">
+    <div class="header">
+      <span>송금보내요</span>
+      <img src="./img/image.png" alt="kakao character">
+    </div>
+    <div class="content">
+      <div class="amount">100,000원을 보냈어요.</div>
+      <div class="notice">송금 받기 전까지 보낸 분은 내역 상세화면에서 취소할 수 있어요.</div>
+    </div>
+    <div class="button" onclick="alert('❌ 오류: 카카오페이 서버가 응답하지 않습니다.')">송금 받기</div>
+    <div class="footer">
+      <img src="https://cdn-icons-png.flaticon.com/512/5968/5968758.png" alt="kakaopay" />
+      카카오페이
+    </div>
+  </div>
+
+  <script>
+    setTimeout(() => {
+      document.getElementById("loading").style.display = "none";
+      document.getElementById("card").style.display = "block";
+    }, 2000);
+  </script>
+</body>
+</html>
